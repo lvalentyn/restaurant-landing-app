@@ -1,0 +1,141 @@
+.app__gallery {
+	display: flex;
+	flex-direction: row;
+
+	padding: 4rem 6rem;
+	background: var(--color-black);
+
+	&-content {
+		flex:1;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+
+		min-width: 500px;
+		padding-right: 2rem;
+
+		button {
+			margin-top: 2rem;
+		}
+	}
+
+	&-images {
+		flex:1;
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		max-width: 50%;
+
+		&_container {
+			display: flex;
+			flex-direction: row;
+			width: max-content;
+			overflow-x: scroll;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+
+		&_card {
+			position: relative;
+			min-width: 301px;
+			height: 447px;
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				opacity: 1;
+				transition: .5s ease;
+			}
+
+			&:hover {
+				img {
+					opacity: .35;
+				}
+
+				& .app__gallery-images_icon {
+					opacity: 1;
+				}
+			}
+		}
+
+		&-icon {
+			position: absolute;
+			color: #fff;
+			font-size: 2rem;
+			opacity: .5;
+			transition: .5s ease;
+			cursor: pointer;
+		}
+
+		&_arrows {
+			position: absolute;
+			bottom: 5%;
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			padding: 0 1rem;
+			width: 100%;
+
+			&-icon {
+				background: var(--color-black);
+				color: var(--color-golden);
+				border-radius: 5px;
+				font-size: 2rem;
+				cursor: pointer;
+
+				&:hover {
+					color: var(--color-white);
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: 2000px) {
+		&-content {
+			min-width: 1000px;
+			padding-right: 4rem;
+		}
+
+		&-images {
+			&_card {
+				min-width: 400px;
+				height: 550px;
+			}
+		}
+	}
+	
+	@media screen and (max-width: 1150px) {
+		flex-direction: column;
+
+		&-images {
+			max-width: 100%;
+			margin: 5rem 0;
+		}
+	}
+
+	@media screen and (max-width: 650px) {
+		padding: 4rem 2rem;
+
+		&-content {
+			min-width: 100%;
+		}
+
+		&-images {
+			&_card {
+				min-width: 240px;
+				height: 320px;
+			}
+		}
+	}
+}
