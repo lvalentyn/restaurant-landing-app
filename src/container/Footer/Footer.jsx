@@ -1,17 +1,21 @@
 import React from 'react';
 import { FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
 import { SubHeading } from '../../components';
-
+import { motion } from 'framer-motion';
 import { FooterOverlay, Newsletter } from '../../components';
 import { images } from '../../constants';
 import './Footer.scss';
 
 const Footer = () => (
 	<div className="app__footer section__padding">
+
 		<FooterOverlay />
 		<Newsletter />
 
-		<div className="app__footer-links">
+		<motion.div className="app__footer-links"
+			whileInView={{ y: [100, 50, 0], opacity: [0, 1] }}
+			transition={{ duration: 0.85, ease: 'easeOut' }}
+		>
 			<div className="app__footer-links_contacts">
 				<h2 className="app__footer-headtext">Contact Us</h2>
 				<p className="p__opensans">9 W 53rd St, New York, NY 10019, USA</p>
@@ -35,7 +39,7 @@ const Footer = () => (
 				<p className="p__opensans">Saturday-Sunday:</p>
 				<p className="p__opensans">07:00am -11:00 pm</p>
 			</div>
-		</div>
+		</motion.div>
 		<div className="app__footer-copyright">
 			<p className="p__opensans">2021 Gerícht. All Rights reserved.</p>
 		</div>

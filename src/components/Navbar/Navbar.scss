@@ -30,9 +30,13 @@
 				margin: 0 1rem;
 
 				cursor: pointer;
-
+			a {
+				transition: .5s ease;
+			}
 				&:hover {
-					color: var(--color-grey);
+					a {
+						color: var(--color-golden);
+					}
 				}
 			}
 		}

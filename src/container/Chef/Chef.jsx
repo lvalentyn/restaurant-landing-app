@@ -1,16 +1,23 @@
 import React from 'react';
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
+import { motion } from 'framer-motion';
 import './Chef.scss';
 
 const Chef = () => (
 	<div className='app__bg app__wrapper section__padding'>
 
-		<div className="app__wrapper_img app__wrapper_img-reverse">
+		<motion.div className="app__wrapper_img app__wrapper_img-reverse"
+			whileInView={{ x: [-300, 0], opacity: [0, 1] }}
+			transition={{ duration: 0.85, ease: 'easeOut' }}
+		>
 			<img src={images.chef} alt="chef" />
-		</div>
+		</motion.div>
 
-		<div className="app__wrapper_info">
+		<motion.div className="app__wrapper_info"
+			whileInView={{ x: [300, 0], opacity: [0, 1] }}
+			transition={{ duration: 0.85, ease: 'easeOut' }}
+		>
 			<SubHeading title='Chef’s Word' />
 			<h2 className='headtext__cormorant'>What we believe in</h2>
 
@@ -31,7 +38,7 @@ const Chef = () => (
 				<p className='p__opensans'>Chef & Founder</p>
 				<img src={images.sign} alt="sign" />
 			</div>
-		</div>
+		</motion.div>
 
 	</div>
 

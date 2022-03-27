@@ -2,10 +2,13 @@ import React from 'react';
 import { SubHeading } from '../../components';
 import { images, data } from '../../constants';
 import './Laurels.scss';
-
+import { motion } from 'framer-motion';
 const Laurels = () => (
 	<div className='app__bg app__wrapper section__padding' id='awards'>
-		<div className="app__wrapper_info">
+		<motion.div className="app__wrapper_info"
+			whileInView={{ x: [-300, 0], opacity: [0, 1] }}
+			transition={{ duration: 0.85, ease: 'easeOut' }}
+		>
 			<SubHeading title='Awards & recognition' />
 			<h2 className='headtext__cormorant'>Our Laurels</h2>
 
@@ -14,10 +17,13 @@ const Laurels = () => (
 					<AwardCard award={award} key={award.title + i} />
 				))}
 			</div>
-		</div>
-		<div className="app__wrapper_img">
+		</motion.div>
+		<motion.div className="app__wrapper_img"
+			whileInView={{ x: [300, 0], opacity: [0, 1] }}
+			transition={{ duration: 0.85, ease: 'easeOut' }}
+		>
 			<img src={images.laurels} alt="laurels" />
-		</div>
+		</motion.div>
 
 	</div>
 );
